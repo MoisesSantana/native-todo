@@ -3,11 +3,13 @@ import { Header } from '../../components/header';
 import { TaskStatus } from '../../components/task-status';
 import { Task } from '../../components/task';
 import { styles } from './styles';
+import { Form } from '../../components/form';
 
 export function Home() {
   return (
     <View style={styles.container}>
       <Header />
+      <Form />
       <TaskStatus />
       <Task />
     </View>
