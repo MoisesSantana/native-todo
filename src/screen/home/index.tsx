@@ -15,6 +15,21 @@ export function Home() {
     setTodoList((state) => [...state, task]);
   }
 
+  function checkTask(description: string) {
+    const newList = todoList.map((task) => {
+      if (task.description === description) {
+        task.finished = !task.finished;
+      }
+      return task;
+    });
+    setTodoList(newList);
+  }
+
+  function removeTask(description: string) {
+    const newList = todoList.filter((task) => task.description !== description);
+    setTodoList(newList);
+  }
+
   return (
     <View style={styles.container}>
       <Header />
@@ -24,7 +39,7 @@ export function Home() {
         <FlatList
           data={todoList}
           keyExtractor={(item) => item.description}
-          renderItem={({ item }) => <Task task={item} />}
+          renderItem={({ item }) => <Task task={item} checkTask={checkTask} removeTask={removeTask} />}
           showsVerticalScrollIndicator={false}
           ListEmptyComponent={<EmptyList />}
         />
