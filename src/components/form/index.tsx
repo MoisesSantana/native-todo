@@ -36,7 +36,7 @@ export function Form({ addTask }: FormProps) {
         style={styles.btn}
         onPress={handleAddTask}
       >
-        <Image source={require('../../../assets/plus.png')} />
+        <Image source={require('../../../assets/icon/plus.png')} />
       </TouchableOpacity>
     </View>
   );

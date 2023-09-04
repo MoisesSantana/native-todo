@@ -16,14 +16,14 @@ export function Task({ task, checkTask, removeTask }: TaskProps) {
         onPress={() => checkTask(task.description)}
       >
         <View style={ task.finished ? styles.checked : styles.checkbox }>
-          { task.finished && <Image source={require('../../../assets/Vector.png')} /> }
+          { task.finished && <Image source={require('../../../assets/icon/check.png')} /> }
         </View>
         <Text style={ task.finished ? styles.checkedText : styles.text }>{ task.description }</Text>
       </TouchableOpacity>
       <TouchableOpacity
         onPress={() => removeTask(task.description)}
       >
-        <Image source={require('../../../assets/trash.png')} />
+        <Image source={require('../../../assets/icon/trash.png')} />
       </TouchableOpacity>
     </View>
   );
