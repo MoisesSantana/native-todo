@@ -2,9 +2,26 @@ import { Image, TextInput, TouchableOpacity, View } from 'react-native';
 import { palette } from '../../styles/theme';
 import { useState } from 'react';
 import { styles } from './styles';
+import { Todo } from '../../@types';
 
-export function Form() {
+type FormProps = {
+  addTask: (task: Todo) => void;
+};
+
+export function Form({ addTask }: FormProps) {
   const [taskValue, setTaskValue] = useState('');
+
+  function handleAddTask() {
+    if (taskValue === '') return;
+
+    const task = {
+      description: taskValue,
+      finished: false,
+    };
+
+    addTask(task);
+    setTaskValue('');
+  }
 
   return (
     <View style={styles.container}>
@@ -15,7 +32,10 @@ export function Form() {
         value={taskValue}
         onChangeText={setTaskValue}
       />
-      <TouchableOpacity style={styles.btn}>
+      <TouchableOpacity
+        style={styles.btn}
+        onPress={handleAddTask}
+      >
         <Image source={require('../../../assets/plus.png')} />
       </TouchableOpacity>
     </View>
