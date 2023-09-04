@@ -1,9 +1,14 @@
-import { Text, View } from 'react-native';
+import { View } from 'react-native';
+import { Header } from '../../components/header';
+import { TaskStatus } from '../../components/task-status';
+import { Task } from '../../components/task';
 
 export function Home() {
   return (
     <View>
-      <Text>Home</Text>
+      <Header />
+      <TaskStatus />
+      <Task />
     </View>
   );
 }
