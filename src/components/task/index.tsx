@@ -1,9 +1,14 @@
 import { Text, View } from 'react-native';
+import { Todo } from '../../@types';
 
-export function Task() {
+type TaskProps = {
+  task: Todo;
+}
+
+export function Task({ task }: TaskProps) {
   return (
     <View>
-      <Text>Task</Text>
+      <Text>{ task.description }</Text>
     </View>
   );
 }
