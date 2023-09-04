@@ -5,7 +5,6 @@ export const styles = StyleSheet.create({
   container: {
     width: '100%',
     flexDirection: 'row',
-    paddingHorizontal: 25,
     marginTop: -25,
   },
   input: {
