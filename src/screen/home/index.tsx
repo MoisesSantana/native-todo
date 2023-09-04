@@ -9,9 +9,11 @@ export function Home() {
   return (
     <View style={styles.container}>
       <Header />
-      <Form />
-      <TaskStatus />
-      <Task />
+      <View style={styles.body}>
+        <Form />
+        <TaskStatus />
+        <Task />
+      </View>
     </View>
   );
 }
