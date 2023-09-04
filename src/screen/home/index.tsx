@@ -30,12 +30,18 @@ export function Home() {
     setTodoList(newList);
   }
 
+  const totalTasks = todoList.length;
+  const finishedTasks = todoList.reduce((total, task) => {
+    if (task.finished) total++;
+    return total;
+  }, 0);
+
   return (
     <View style={styles.container}>
       <Header />
       <View style={styles.body}>
         <Form addTask={addTask} />
-        <TaskStatus />
+        <TaskStatus totalTasks={totalTasks} finishedTasks={finishedTasks} />
         <FlatList
           data={todoList}
           keyExtractor={(item) => item.description}
